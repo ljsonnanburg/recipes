@@ -1,0 +1,17 @@
+<h1>Welcome {{user.first_name}}</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark text-light d-flex justify-content-around">
+    <span>All posted recipes:</span>
+    <div>
+        <a href="/dashboard">+ back to recipes</a>
+        <a href="/logout">logout</a>
+    </div>
+    <h1>Welcome {{session['first_name']}}</h1>
+    <p>Posted by: {{recipe.user_name}}</p>
+    <div>
+        <p>Description: {{recipe.description}}</p>
+        <p>Under 30 Minutes? {{recipe.under_30}}</p>
+        <p>Instructions: {{recipe.instruction}}</p>
+        <p>Date Made: {{recipe.date_cooked}}</p>
+    </div>
+    <!-- TO DO: ADD COMMENT FUNCTIONALITY -->
+</nav>

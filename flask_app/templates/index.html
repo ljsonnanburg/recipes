@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body class="bg-secondary">
+    <div class="container d-flex justify-content-around mt-4 text-light">
+        <!-- Register Box -->
+        <form class="bg-dark text-light p-4 rounded col-5" action="/register" method="post">
+            <input type="hidden" name="button_pressed" value="register">
+            <h1 class="text-primary">Register</h1>
+            {% with messages = get_flashed_messages(category_filter=["register"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class='text-danger'><em>{{ message }} </em></p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <label for="first_name" class="form-label">First Name:</label>
+            <input type="text" class="form-control" name="first_name">
+            <label for="last_name" class="form-label">Last Name:</label>
+            <input type="text" class="form-control" name="last_name">
+            <label for="email" class="form-label">Email:</label>
+            <input type="text" class="form-control" name="email">
+            <label for="password" class="form-label">Password:</label>
+            <input type="text" class="form-control" name="password">
+            <label for="confirm" class="form-label">Confirm Password:</label>
+            <input type="text" class="form-control" name="confirm">
+            <!-- <label for="password" class="form-label">Password:</label>
+            <input type="text" class="form-control" name="password">
+            <label for="confirm" class="form-label">Confirm Password:</label>
+            <input type="text" class="form-control" name="confirm"> -->
+            <input type='submit' value='Register' class="btn btn-primary mt-3 float-left">
+        </form>
+        <!-- Login Box -->
+        <form class="bg-dark text-light p-4 rounded col-5" action="/login" method="post">
+            <h1 class="text-success">Register</h1>
+            {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class='text-danger'><em>{{ message }} </em></p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <label for="email" class="form-label">Email:</label>
+            <input type="text" class="form-control" name="email">
+            <label for="password" class="form-label">Password:</label>
+            <input type="text" class="form-control" name="password">
+            <input type='submit' value='Login' class="btn btn-success mt-3 float-left">
+        </form>
+    </div>
+</body>
+</html>
